@@ -1,3 +1,4 @@
+const InputView = require('../view/InputView');
 const OutputView = require('../view/OutputView');
 
 class LottoGameController {
@@ -5,11 +6,15 @@ class LottoGameController {
   #outputView;
 
   constructor() {
+    this.#inputView = new InputView();
     this.#outputView = new OutputView();
   }
 
   start() {
-    this.#outputView.printPurchaseAmount();
+    const userInput = (input) => {
+      console.log(input);
+    };
+    this.#inputView.readMoney(userInput);
   }
 }
 
