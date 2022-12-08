@@ -18,7 +18,7 @@ const countLottoMatch = ({ three, four, five, bonus, six }) => {
 6개 일치 (2,000,000,000원) - ${six}개`;
 };
 
-const calculateProfitRate = (rate) => {
+const profitRate = (rate) => {
   return `총 수익률은 ${[rate].toLocaleString()}%입니다.`;
 };
 
@@ -26,5 +26,5 @@ module.exports = {
   MESSAGES,
   buyLottos,
   countLottoMatch,
-  calculateProfitRate,
+  profitRate,
 };
