@@ -1,5 +1,5 @@
 const { readLine } = require('../utils/missionUtils');
-const { MESSAGES } = require('../constants/messages');
+const { MESSAGES } = require('../constants/gameMessages');
 
 class InputView {
   readMoney(callback) {

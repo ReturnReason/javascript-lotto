@@ -1,5 +1,5 @@
 const { print } = require('../utils/missionUtils');
-const { MESSAGES } = require('../constants/messages');
+const { MESSAGES } = require('../constants/gameMessages');
 
 class OutputView {}
 
