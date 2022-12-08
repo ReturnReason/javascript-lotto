@@ -8,6 +8,7 @@ class InputValidator {
     if (input % amount) {
       throw invalidRangeMoney;
     }
+    return true;
   }
 }
 
