@@ -1,6 +1,10 @@
 const { print } = require('../utils/missionUtils');
-const { MESSAGES } = require('../constants/gameMessages');
+const { buyLottos } = require('../constants/gameMessages');
 
-class OutputView {}
+class OutputView {
+  printLottoQuantity(quantity) {
+    print(buyLottos(quantity));
+  }
+}
 
 module.exports = OutputView;
