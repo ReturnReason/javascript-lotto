@@ -11,6 +11,11 @@ class InputView {
     const { winningNumbers } = MESSAGES;
     readLine(winningNumbers, callback);
   }
+
+  readBonusNumber(callback) {
+    const { bonusNumber } = MESSAGES;
+    readLine(bonusNumber, callback);
+  }
 }
 
 module.exports = InputView;
