@@ -28,6 +28,7 @@ class LottoGameController {
       const lottoQuantity = countLottoQuantity(input);
       this.#outputView.printLottoQuantity(lottoQuantity);
       this.pickedLottoNumbers(lottoQuantity);
+      this.printLottos();
     };
     this.#inputView.readMoney(userInput);
   }
@@ -43,8 +44,12 @@ class LottoGameController {
       this.#lotto = new Lotto(lotto);
       this.#user.addLotto(this.#lotto.getNumbers());
     }
+  }
 
-    console.log(this.#user.getLottos());
+  printLottos() {
+    this.#user.getLottos().forEach((lotto) => {
+      this.#outputView.printLotto(lotto);
+    });
   }
 }
 
