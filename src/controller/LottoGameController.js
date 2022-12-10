@@ -38,12 +38,13 @@ class LottoGameController {
   }
 
   pickedLottoNumbers(lottoQuantity) {
-    // 구매한 로또 개수만큼 로또 번호 뽑기
     for (let i = 0; i < lottoQuantity; i++) {
       const lotto = this.#lottoMachine.makeLottoNumbers();
       this.#lotto = new Lotto(lotto);
+      this.#user.addLotto(this.#lotto.getNumbers());
     }
-    console.log(this.#lotto.getNumbers());
+
+    console.log(this.#user.getLottos());
   }
 }
 
