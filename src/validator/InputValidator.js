@@ -10,6 +10,15 @@ class InputValidator {
     }
     return true;
   }
+
+  checkValidInput(input) {
+    const { invalidMoney } = ERROR;
+    const isValidNumber = Number.isNaN(Number(input));
+    if (input.includes('.') || isValidNumber) {
+      throw invalidMoney;
+    }
+    return true;
+  }
 }
 
 module.exports = InputValidator;
