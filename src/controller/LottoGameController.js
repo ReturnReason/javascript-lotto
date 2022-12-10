@@ -67,6 +67,7 @@ class LottoGameController {
     this.inputValidator.checkEmptyInput(input);
     this.inputValidator.checkValidWinningNumbersSeparator(input);
     this.inputValidator.checkValidWinningNumbersLenght(input);
+    this.inputValidator.checkValidLottoNumbersRange(input);
   }
 
   getBonusNumber() {

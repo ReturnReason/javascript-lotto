@@ -46,7 +46,14 @@ class InputValidator {
     return true;
   }
 
-  checkValidLottoNumbersRange(lottoNumbers) {}
+  checkValidLottoNumbersRange(lottoNumbers) {
+    const { invalidLottoNumber } = ERROR;
+    lottoNumbers.split(',').forEach((number) => {
+      if (!(number >= 1 && number <= 45)) {
+        throw invalidLottoNumber;
+      }
+    });
+  }
 }
 
 module.exports = InputValidator;
