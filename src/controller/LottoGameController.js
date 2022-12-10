@@ -24,16 +24,17 @@ class LottoGameController {
 
   start() {
     const userInput = (input) => {
-      this.validate(input);
+      this.validateMoney(input);
       const lottoQuantity = countLottoQuantity(input);
       this.#outputView.printLottoQuantity(lottoQuantity);
       this.pickedLottoNumbers(lottoQuantity);
       this.printLottos();
+      this.getWinningNumbers();
     };
     this.#inputView.readMoney(userInput);
   }
 
-  validate(input) {
+  validateMoney(input) {
     this.inputValidator.checkValidMoney(input);
     this.inputValidator.checkValidInput(input);
   }
@@ -51,6 +52,16 @@ class LottoGameController {
       this.#outputView.printLotto(lotto);
     });
   }
+
+  getWinningNumbers() {
+    const userInput = (input) => {
+      console.log(input);
+    };
+
+    this.#inputView.readWinningNumbers(userInput);
+  }
+
+  validateWinningNumbers() {}
 }
 
 module.exports = LottoGameController;
