@@ -57,6 +57,7 @@ class LottoGameController {
   getWinningNumbers() {
     const userInput = (input) => {
       this.validateWinningNumbers(input);
+      this.getBonusNumber();
     };
 
     this.#inputView.readWinningNumbers(userInput);
@@ -66,6 +67,14 @@ class LottoGameController {
     this.inputValidator.checkEmptyInput(input);
     this.inputValidator.checkValidWinningNumbersSeparator(input);
     this.inputValidator.checkValidWinningNumbersLenght(input);
+  }
+
+  getBonusNumber() {
+    const userInput = (input) => {
+      console.log(input);
+    };
+
+    this.#inputView.readBonusNumber(userInput);
   }
 }
 
