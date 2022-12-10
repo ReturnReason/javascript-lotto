@@ -19,6 +19,14 @@ class InputValidator {
     }
     return true;
   }
+
+  checkEmptyInput(input) {
+    const { emptyInput } = ERROR;
+    if (!input.length || input === ' ') {
+      throw emptyInput;
+    }
+    return true;
+  }
 }
 
 module.exports = InputValidator;
