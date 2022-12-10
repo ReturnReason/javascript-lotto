@@ -35,6 +35,7 @@ class LottoGameController {
   }
 
   validateMoney(input) {
+    this.inputValidator.checkEmptyInput(input);
     this.inputValidator.checkValidMoney(input);
     this.inputValidator.checkValidInput(input);
   }
@@ -43,7 +44,7 @@ class LottoGameController {
     for (let i = 0; i < lottoQuantity; i++) {
       const lotto = this.#lottoMachine.makeLottoNumbers();
       this.#lotto = new Lotto(lotto);
-      this.#user.addLotto(this.#lotto.getNumbers());
+      this.#user.addLotto(this.#lotto.getNumbers().sort((a, b) => a - b));
     }
   }
 
@@ -55,13 +56,13 @@ class LottoGameController {
 
   getWinningNumbers() {
     const userInput = (input) => {
-      console.log(input);
+      this.validateWinningNumbers(input);
     };
 
     this.#inputView.readWinningNumbers(userInput);
   }
 
-  validateWinningNumbers() {}
+  validateWinningNumbers(input) {}
 }
 
 module.exports = LottoGameController;
