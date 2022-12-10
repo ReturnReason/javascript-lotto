@@ -6,6 +6,7 @@ const Lotto = require('../Lotto');
 const { countLottoQuantity } = require('../utils/calculator');
 const LottoMachine = require('../model/LottoMachine');
 const User = require('../model/User');
+const WinningLottoNumbers = require('../model/WinningLottoNumbers');
 
 class LottoGameController {
   #inputView;
@@ -20,6 +21,7 @@ class LottoGameController {
     this.#lottoMachine = new LottoMachine();
     this.#user = new User();
     this.inputValidator = new InputValidator();
+    this.winningLottoNumbers = new WinningLottoNumbers();
   }
 
   start() {
@@ -57,6 +59,7 @@ class LottoGameController {
   getWinningNumbers() {
     const userInput = (input) => {
       this.validateWinningNumbers(input);
+      this.winningLottoNumbers.setWinningNumbers(input);
       this.getBonusNumber();
     };
 
@@ -72,11 +75,14 @@ class LottoGameController {
 
   getBonusNumber() {
     const userInput = (input) => {
-      console.log(input);
+      this.inputValidator.checkValidBonusNumberRange(input);
+      this.winningLottoNumbers.setBonusNumber(input);
     };
 
     this.#inputView.readBonusNumber(userInput);
   }
+
+  result() {}
 }
 
 module.exports = LottoGameController;
