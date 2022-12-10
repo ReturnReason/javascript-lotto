@@ -6,6 +6,11 @@ class InputView {
     const { purchaseAmount } = MESSAGES;
     readLine(purchaseAmount, callback);
   }
+
+  readWinningNumbers(callback) {
+    const { winningNumbers } = MESSAGES;
+    readLine(winningNumbers, callback);
+  }
 }
 
 module.exports = InputView;
