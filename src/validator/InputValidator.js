@@ -49,10 +49,18 @@ class InputValidator {
   checkValidLottoNumbersRange(lottoNumbers) {
     const { invalidLottoNumber } = ERROR;
     lottoNumbers.split(',').forEach((number) => {
-      if (!(number >= 1 && number <= 45)) {
+      if (!(number >= LOTTO.startNum && number <= LOTTO.endNum)) {
         throw invalidLottoNumber;
       }
     });
+  }
+
+  checkValidBonusNumberRange(bonusNumber) {
+    const { invalidBonusNumber } = ERROR;
+    if (!(bonusNumber >= LOTTO.startNum && bonusNumber <= LOTTO.endNum)) {
+      throw invalidBonusNumber;
+    }
+    return true;
   }
 }
 
