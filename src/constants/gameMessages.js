@@ -5,7 +5,7 @@ const MESSAGES = Object.freeze({
 });
 
 const buyLottos = (count) => {
-  return `${count}개를 구매했습니다.\n`;
+  return `\n${count}개를 구매했습니다.`;
 };
 
 const countLottoMatch = ({ three, four, five, bonus, six }) => {
