@@ -5,6 +5,10 @@ class OutputView {
   printLottoQuantity(quantity) {
     print(buyLottos(quantity));
   }
+
+  printLotto(lotto) {
+    print(`[${lotto.join(', ')}]`);
+  }
 }
 
 module.exports = OutputView;
