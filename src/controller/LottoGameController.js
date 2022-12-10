@@ -27,6 +27,7 @@ class LottoGameController {
       this.validate(input);
       const lottoQuantity = countLottoQuantity(input);
       this.#outputView.printLottoQuantity(lottoQuantity);
+      this.pickedLottoNumbers(lottoQuantity);
     };
     this.#inputView.readMoney(userInput);
   }
@@ -34,6 +35,15 @@ class LottoGameController {
   validate(input) {
     this.inputValidator.checkValidMoney(input);
     this.inputValidator.checkValidInput(input);
+  }
+
+  pickedLottoNumbers(lottoQuantity) {
+    // 구매한 로또 개수만큼 로또 번호 뽑기
+    for (let i = 0; i < lottoQuantity; i++) {
+      const lotto = this.#lottoMachine.makeLottoNumbers();
+      this.#lotto = new Lotto(lotto);
+    }
+    console.log(this.#lotto.getNumbers());
   }
 }
 
