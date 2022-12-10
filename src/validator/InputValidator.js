@@ -37,18 +37,16 @@ class InputValidator {
     return true;
   }
 
-  checkValidWinningNumbersLenght(winningNumber) {
-    // 로또 번호 6개 입력했는지 확인
-    // const { count } =LOTTO;
-    // const {invalidWinningNumbersLength } =ERROR;
-    // const lottoNumbers = winningNumber.split(',');
-    // if(lottoNumbers.length !== count) throw invalidWinningNumbersLength;
-    // lottoNumbers.forEach(())
+  checkValidWinningNumbersLenght(winningNumbers) {
+    const { count } = LOTTO;
+    const { invalidWinningNumbersLength } = ERROR;
+    if (winningNumbers.split(',').length !== count) {
+      throw invalidWinningNumbersLength;
+    }
+    return true;
   }
 
-  checkValidLottoNumbersRange(lottoNumber) {
-    // 로또 번호가 1~45 사이 숫자인지 확인
-  }
+  checkValidLottoNumbersRange(lottoNumbers) {}
 }
 
 module.exports = InputValidator;

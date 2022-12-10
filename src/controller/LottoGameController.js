@@ -65,6 +65,7 @@ class LottoGameController {
   validateWinningNumbers(input) {
     this.inputValidator.checkEmptyInput(input);
     this.inputValidator.checkValidWinningNumbersSeparator(input);
+    this.inputValidator.checkValidWinningNumbersLenght(input);
   }
 }
 
