@@ -62,7 +62,10 @@ class LottoGameController {
     this.#inputView.readWinningNumbers(userInput);
   }
 
-  validateWinningNumbers(input) {}
+  validateWinningNumbers(input) {
+    this.inputValidator.checkEmptyInput(input);
+    this.inputValidator.checkValidWinningNumbersSeparator(input);
+  }
 }
 
 module.exports = LottoGameController;
