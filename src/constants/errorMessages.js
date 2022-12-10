@@ -5,6 +5,8 @@ const ERROR = Object.freeze({
   invalidLottoNumber: '[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.',
   duplicateNumber: '[ERROR] 중복된 번호는 입력할 수 없습니다.',
   invalidBonusNumber: '[ERROR] 보너스 번호는 1부터 45 사이의 숫자여야 합니다.',
+  invalidWinningNumbersSeparator: '[ERROR] 구분자는 띄어쓰기 없이 콤마(,) 만 사용할 수 있습니다.',
+  invalidWinningNumbersLength: '[ERROR] 당첨 번호는 6개만 입력해야 합니다',
 });
 
 module.exports = {
