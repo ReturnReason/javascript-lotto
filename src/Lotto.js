@@ -1,9 +1,18 @@
+const { ERROR } = require('./constants/errorMessages');
+const { LOTTO } = require('./constants/lotto');
+
 class Lotto {
   #numbers;
 
   constructor(numbers) {
-    this.validate(numbers);
     this.#numbers = numbers;
+
+    this.validate(numbers);
+    this.checkDuplicateNumber(numbers);
+  }
+
+  getNumbers() {
+    return this.#numbers;
   }
 
   validate(numbers) {
@@ -12,8 +21,12 @@ class Lotto {
     }
   }
 
-  getNumbers() {
-    return this.#numbers;
+  checkDuplicateNumber(numbers) {
+    const deduplicationLottoNumbers = [...new Set([...numbers])];
+    if (deduplicationLottoNumbers.length !== LOTTO.count) {
+      throw ERROR.duplicateNumber;
+    }
+    return true;
   }
 }
 
