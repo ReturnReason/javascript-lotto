@@ -3,7 +3,7 @@ const InputView = require('../view/InputView');
 const OutputView = require('../view/OutputView');
 const Lotto = require('../Lotto');
 
-const { countLottoQuantity } = require('../utils/calculator');
+const { countLottoQuantity, calculatorProfitRate } = require('../utils/calculator');
 const LottoMachine = require('../model/LottoMachine');
 const User = require('../model/User');
 const WinningLottoNumbers = require('../model/WinningLottoNumbers');
@@ -91,10 +91,13 @@ class LottoGameController {
 
     const lottoComparator = new LottoComparator();
     const result = lottoComparator.compareLottoNumbers(winningNumbers, bonusNumber, userLottos);
-    this.#outputView.printWinningStatistics(result);
+    this.gameResult(result);
   }
 
-  result() {}
+  gameResult(result) {
+    this.#outputView.printMatchCount(result);
+    this.#outputView.printStats(calculatorProfitRate(result, this.#user.getMoney()));
+  }
 }
 
 module.exports = LottoGameController;
