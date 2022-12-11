@@ -28,10 +28,9 @@ class LottoGameController {
   start() {
     const userInput = (input) => {
       this.validateMoney(input);
-      const lottoQuantity = countLottoQuantity(input);
+      const lottoQuantity = this.calculateLottoQuantity(input);
       this.#outputView.printLottoQuantity(lottoQuantity);
-      this.pickedLottoNumbers(lottoQuantity);
-      this.printLottos();
+      this.createLottos(lottoQuantity);
       this.getWinningNumbers();
     };
     this.#inputView.readMoney(userInput);
@@ -41,6 +40,16 @@ class LottoGameController {
     this.inputValidator.checkEmptyInput(input);
     this.inputValidator.checkValidMoney(input);
     this.inputValidator.checkValidInput(input);
+  }
+
+  calculateLottoQuantity(input) {
+    const lottoQuantity = countLottoQuantity(input);
+    return lottoQuantity;
+  }
+
+  createLottos(lottoQuantity) {
+    this.pickedLottoNumbers(lottoQuantity);
+    this.printLottos();
   }
 
   pickedLottoNumbers(lottoQuantity) {
