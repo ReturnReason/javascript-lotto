@@ -9,7 +9,7 @@ const buyLottos = (count) => {
 };
 
 const countLottoMatch = ({ three, four, five, bonus, six }) => {
-  return `당첨 통계
+  return `\n당첨 통계
 ---
 3개 일치 (5,000원) - ${three}개
 4개 일치 (50,000원) - ${four}개
