@@ -7,6 +7,7 @@ const { countLottoQuantity } = require('../utils/calculator');
 const LottoMachine = require('../model/LottoMachine');
 const User = require('../model/User');
 const WinningLottoNumbers = require('../model/WinningLottoNumbers');
+const LottoComparator = require('../model/LottoComparator');
 
 class LottoGameController {
   #inputView;
@@ -59,7 +60,7 @@ class LottoGameController {
   getWinningNumbers() {
     const userInput = (input) => {
       this.validateWinningNumbers(input);
-      this.winningLottoNumbers.setWinningNumbers(input);
+      this.winningLottoNumbers.setWinningNumbers(input.split(',').map(Number));
       this.getBonusNumber();
     };
 
@@ -76,10 +77,21 @@ class LottoGameController {
   getBonusNumber() {
     const userInput = (input) => {
       this.inputValidator.checkValidBonusNumberRange(input);
-      this.winningLottoNumbers.setBonusNumber(input);
+      this.winningLottoNumbers.setBonusNumber(Number(input));
+      this.compare();
     };
 
     this.#inputView.readBonusNumber(userInput);
+  }
+
+  compare() {
+    const winningNumbers = this.winningLottoNumbers.getWinningNumbers();
+    const bonusNumber = this.winningLottoNumbers.getBonusNumber();
+    const userLottos = this.#user.getLottos();
+
+    const lottoComparator = new LottoComparator();
+    const result = lottoComparator.compareLottoNumbers(winningNumbers, bonusNumber, userLottos);
+    // this.#outputView.printWinningStatistics(result);
   }
 
   result() {}
