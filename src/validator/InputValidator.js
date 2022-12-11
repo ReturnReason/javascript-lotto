@@ -67,7 +67,7 @@ class InputValidator {
     const { duplicateNumber } = ERROR;
     const { totalCount } = LOTTO;
 
-    const deduplicationNumbers = [...new Set(lottoNumbers, bonusNumber)];
+    const deduplicationNumbers = [...new Set([...lottoNumbers, bonusNumber])];
     if (deduplicationNumbers.length !== totalCount) {
       throw duplicateNumber;
     }

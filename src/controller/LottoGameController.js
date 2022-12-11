@@ -77,11 +77,11 @@ class LottoGameController {
   getBonusNumber() {
     const userInput = (input) => {
       this.inputValidator.checkValidBonusNumberRange(input);
+      this.winningLottoNumbers.setBonusNumber(Number(input));
       this.inputValidator.checkDuplicateNumbers(
         this.winningLottoNumbers.getWinningNumbers(),
         this.winningLottoNumbers.getBonusNumber()
       );
-      this.winningLottoNumbers.setBonusNumber(Number(input));
       this.compare();
     };
 
