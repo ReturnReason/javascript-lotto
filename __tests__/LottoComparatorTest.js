@@ -36,4 +36,21 @@ describe('🚀 LottoComparator 클래스 테스트', () => {
     const result = lottoComparator.hasBonusNumber(userLotto, bonusNumber);
     expect(result).toBeFalsy();
   });
+
+  test('countTotalMatchLottoNumbers: 유저의 로또 번호가 3개 일치하는 경우 반환된 오브젝트 three 키 값의 value는 1이다. ', () => {
+    const lottoComparator = new LottoComparator();
+    let counter = { three: 0, four: 0, five: 0, bonus: 0, six: 0 };
+    const matchCount = 3;
+    const hasBonus = false;
+
+    const result = lottoComparator.countTotalMatchLottoNumbers(counter, matchCount, hasBonus);
+
+    expect(result).toEqual({
+      three: 1,
+      four: 0,
+      five: 0,
+      bonus: 0,
+      six: 0,
+    });
+  });
 });
