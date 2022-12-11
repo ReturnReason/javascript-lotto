@@ -62,6 +62,18 @@ class InputValidator {
     }
     return true;
   }
+
+  checkDuplicateNumbers(lottoNumbers, bonusNumber) {
+    const { duplicateNumber } = ERROR;
+    const { totalCount } = LOTTO;
+
+    const deduplicationNumbers = [...new Set(lottoNumbers, bonusNumber)];
+    if (deduplicationNumbers.length !== totalCount) {
+      throw duplicateNumber;
+    }
+
+    return true;
+  }
 }
 
 module.exports = InputValidator;
