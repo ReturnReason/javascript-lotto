@@ -3,15 +3,13 @@ const { LOTTO_COUNT } = require('../constants/lotto');
 class LottoComparator {
   compareLottoNumbers(lottoNumbers, bonusNumber, userLottos) {
     let counter = { three: 0, four: 0, five: 0, bonus: 0, six: 0 };
-    const lottoResult = userLottos.map((userLotto) => {
+    userLottos.forEach((userLotto) => {
       const hasBonus = this.hasBonusNumber(userLotto, bonusNumber);
       const matchCount = this.countMatchNumbers(userLotto, lottoNumbers);
       counter = { ...counter, ...this.countTotalMatchLottoNumbers(counter, matchCount, hasBonus) };
     });
 
-    console.log(counter);
-    // 일치 개수 객체로 리턴{}
-    // return this.countTotalMatchLottoNumbers();
+    return counter;
   }
 
   countMatchNumbers(userLotto, lottoNumbers) {
