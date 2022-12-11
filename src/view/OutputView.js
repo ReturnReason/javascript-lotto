@@ -10,9 +10,12 @@ class OutputView {
     print(`[${lotto.join(', ')}]`);
   }
 
-  printWinningStatistics({ three, four, five, bonus, six }) {
+  printMatchCount({ three, four, five, bonus, six }) {
     print(countLottoMatch({ three, four, five, bonus, six }));
-    // print(profitRate()); 수익률
+  }
+
+  printStats(rate) {
+    print(profitRate(rate));
   }
 }
 
