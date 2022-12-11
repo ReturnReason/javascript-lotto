@@ -3,6 +3,7 @@ const LOTTO = Object.freeze({
   startNum: 1,
   endNum: 45,
   count: 6,
+  totalCount: 7,
 });
 
 const LOTTO_COUNT = Object.freeze({
