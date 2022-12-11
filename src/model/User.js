@@ -1,3 +1,6 @@
+const { LOTTO } = require('../constants/lotto');
+const { amount } = LOTTO;
+
 class User {
   #lottos = [];
 
@@ -7,6 +10,10 @@ class User {
 
   getLottos() {
     return [...this.#lottos];
+  }
+
+  getMoney() {
+    return this.#lottos.length * amount;
   }
 }
 
