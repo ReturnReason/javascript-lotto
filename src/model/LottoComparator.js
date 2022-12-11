@@ -1,10 +1,15 @@
+const { LOTTO_COUNT } = require('../constants/lotto');
+
 class LottoComparator {
   compareLottoNumbers(lottoNumbers, bonusNumber, userLottos) {
+    let counter = { three: 0, four: 0, five: 0, bonus: 0, six: 0 };
     const lottoResult = userLottos.map((userLotto) => {
       const hasBonus = this.hasBonusNumber(userLotto, bonusNumber);
       const matchCount = this.countMatchNumbers(userLotto, lottoNumbers);
-      console.log(hasBonus, matchCount);
+      counter = { ...counter, ...this.countTotalMatchLottoNumbers(counter, matchCount, hasBonus) };
     });
+
+    console.log(counter);
     // 일치 개수 객체로 리턴{}
     // return this.countTotalMatchLottoNumbers();
   }
@@ -22,8 +27,22 @@ class LottoComparator {
     return false;
   }
 
-  countTotalMatchLottoNumbers() {
-    const counter = { three: 0, four: 0, five: 0, bonus: 0, six: 0 };
+  countTotalMatchLottoNumbers(counter, matchCount, hasBonus) {
+    if (matchCount === LOTTO_COUNT.three) {
+      counter['three'] += 1;
+    }
+    if (matchCount === LOTTO_COUNT.four) {
+      counter['four'] += 1;
+    }
+    if (matchCount === LOTTO_COUNT.five && !hasBonus) {
+      counter['five'] += 1;
+    }
+    if (matchCount === LOTTO_COUNT.five && hasBonus) {
+      counter['bonus'] += 1;
+    }
+    if (matchCount === LOTTO_COUNT.six) {
+      counter['six'] += 1;
+    }
     return counter;
   }
 }
