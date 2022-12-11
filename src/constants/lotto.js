@@ -12,7 +12,16 @@ const LOTTO_COUNT = Object.freeze({
   six: 6,
 });
 
+const PRIZE_MONEY = Object.freeze({
+  three: 5_000,
+  four: 50_000,
+  five: 1_500_000,
+  bonus: 30_000_000,
+  six: 2_000_000_000,
+});
+
 module.exports = {
   LOTTO,
   LOTTO_COUNT,
+  PRIZE_MONEY,
 };
