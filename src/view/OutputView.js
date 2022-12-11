@@ -1,5 +1,5 @@
 const { print } = require('../utils/missionUtils');
-const { buyLottos } = require('../constants/gameMessages');
+const { buyLottos, countLottoMatch, profitRate } = require('../constants/gameMessages');
 
 class OutputView {
   printLottoQuantity(quantity) {
@@ -8,6 +8,11 @@ class OutputView {
 
   printLotto(lotto) {
     print(`[${lotto.join(', ')}]`);
+  }
+
+  printWinningStatistics({ three, four, five, bonus, six }) {
+    print(countLottoMatch({ three, four, five, bonus, six }));
+    // print(profitRate()); 수익률
   }
 }
 

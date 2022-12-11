@@ -91,7 +91,7 @@ class LottoGameController {
 
     const lottoComparator = new LottoComparator();
     const result = lottoComparator.compareLottoNumbers(winningNumbers, bonusNumber, userLottos);
-    // this.#outputView.printWinningStatistics(result);
+    this.#outputView.printWinningStatistics(result);
   }
 
   result() {}
