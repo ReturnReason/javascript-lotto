@@ -1,4 +1,4 @@
-const { print } = require('../utils/missionUtils');
+const { print, close } = require('../utils/missionUtils');
 const { buyLottos, countLottoMatch, profitRate } = require('../constants/gameMessages');
 
 class OutputView {
@@ -16,6 +16,10 @@ class OutputView {
 
   printStats(rate) {
     print(profitRate(rate));
+  }
+
+  quit() {
+    close();
   }
 }
 

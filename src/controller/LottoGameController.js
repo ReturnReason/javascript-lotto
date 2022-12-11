@@ -97,6 +97,7 @@ class LottoGameController {
   gameResult(result) {
     this.#outputView.printMatchCount(result);
     this.#outputView.printStats(calculatorProfitRate(result, this.#user.getMoney()));
+    this.#outputView.quit();
   }
 }
 
