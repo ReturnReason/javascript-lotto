@@ -71,7 +71,6 @@ class InputValidator {
     if (deduplicationNumbers.length !== totalCount) {
       throw duplicateNumber;
     }
-
     return true;
   }
 }

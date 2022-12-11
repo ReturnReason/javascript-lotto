@@ -76,16 +76,21 @@ class LottoGameController {
 
   getBonusNumber() {
     const userInput = (input) => {
-      this.inputValidator.checkValidBonusNumberRange(input);
+      this.validateBonusNumber(input);
       this.winningLottoNumbers.setBonusNumber(Number(input));
-      this.inputValidator.checkDuplicateNumbers(
-        this.winningLottoNumbers.getWinningNumbers(),
-        this.winningLottoNumbers.getBonusNumber()
-      );
       this.compare();
     };
 
     this.#inputView.readBonusNumber(userInput);
+  }
+
+  validateBonusNumber(input) {
+    this.inputValidator.checkEmptyInput(input);
+    this.inputValidator.checkValidBonusNumberRange(input);
+    this.inputValidator.checkDuplicateNumbers(
+      this.winningLottoNumbers.getWinningNumbers(),
+      Number(input)
+    );
   }
 
   compare() {
